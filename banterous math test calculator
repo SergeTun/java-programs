@@ -1,0 +1,45 @@
+package com.company;
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        float grade;
+        float score;
+        float total;
+
+        System.out.print("What did you get on your test? ");
+        score = scanner.nextInt();
+
+        System.out.print("What was the test out of? ");
+        total = scanner.nextInt();
+
+        grade = (score / total) * (100);
+
+        if (grade >= 80)
+            System.out.println("Congratulations!!! You got a 7!!! Mr Mcgrath is happy for you!");
+        else if (grade >= 70)
+            System.out.println("Nice job! You got a 6! Mr Mcgrath is satisfied.");
+        else if (grade >= 60)
+            System.out.println("Good work. You got a 5. Mr Mcgrath is more or less happy. ");
+        else if (grade >= 50)
+            System.out.println("You passed. You achieved a 4. Mr Mcgrath finds your score... interesting.");
+        else if (grade >= 40)
+            System.out.println("Ouch... A 3 is not a pass. Mr Mcgrath is disappointed. Try harder next time.");
+        else if (grade >= 30)
+            System.out.println("Inconceivable. A 2? Really? Mr Mcgrath is angry. Your parents will be getting a phone call. Do better next time.");
+        else
+            System.out.println("You got a 1. Mr Mcgrath is currently heading towards your location. If I were you, I would ask Ms Yates to sign you up for Maths AI.");
+
+
+
+
+
+
+    }
+}
