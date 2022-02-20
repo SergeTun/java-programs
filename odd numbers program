@@ -1,0 +1,28 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int i = 0;
+        int j = 0;
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("enter an integer");
+        i = s.nextInt();
+
+        System.out.print("enter another integer");
+        j = s.nextInt();
+
+        for ( i = i; i <= j; i++  )
+            
+            System.out.println(i + " ");
+
+
+
+    }
+
+}
