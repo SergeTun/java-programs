@@ -18,6 +18,7 @@ public class Main {
         j = s.nextInt();
 
         for ( i = i; i <= j; i++  )
+            if ( i % 2 != 0)
             
             System.out.println(i + " ");
 
