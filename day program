@@ -1,0 +1,45 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int day;
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Please enter a number corresponding to a day (e.g. 1 - Sunday, 7 - Saturday): ");
+        day = s.nextInt();
+
+        System.out.println("The day you have selected is: " + getName(day));
+
+    }
+
+    private static String getName(int dayName) {
+        if (dayName == 1) {
+            return "Sunday";
+        }
+        else if (dayName == 2) {
+            return "Monday";
+        }
+        else if (dayName == 3) {
+            return "Tuesday";
+        }
+        else if (dayName == 4) {
+            return "Wednesday";
+        }
+        else if (dayName == 5) {
+            return "Thursday";
+        }
+        else if (dayName == 6) {
+            return "Friday";
+        }
+        else if (dayName == 7) {
+            return "Saturday";
+        }
+        else
+            return "Invalid";
+    }
+}
