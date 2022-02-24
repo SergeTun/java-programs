@@ -1,0 +1,33 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int num;
+        int num2;
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Please type in a number: ");
+        num = s.nextInt();
+
+        System.out.print("Please type in another number: ");
+        num2 = s.nextInt();
+
+        System.out.println(findBigger( num, num2 ) + " is the bigger number");
+
+    }
+
+    private static int findBigger(int n1, int n2) {
+        if (n1 > n2)
+            return n1;
+        else if (n1 < n2)
+            return n2;
+        else
+            return n1;
+    }
+
+}
