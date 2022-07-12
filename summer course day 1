@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Please select a number");
+        float number = s.nextFloat();
+
+        System.out.println("Please select another number");
+        float number2 = s.nextFloat();
+
+        System.out.println("Your 2 numbers added equals to" + number + number2);
+        System.out.println("Your 2 numbers divided by each other" + number / number2);
+        System.out.println("Your 2 numbers multiplied by each other" + number * number2);
+
+    }
+}
