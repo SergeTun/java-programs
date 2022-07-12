@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    
+
+      
+    Scanner s = new Scanner(System.in);
+
+    System.out.print("Please input a number  of cents ");
+    int cents = s.nextInt();
+
+    int Quarter = cents / 25;
+    cents = cents % 25;
+    int dime = cents / 10;
+    cents = cents % 10;
+    int nickel = cents / 5;
+    cents = cents % 5;
+    int penny = cents / 1;
+    cents = cents % 1;
+
+    System.out.println("This is your amount of quarters " + Quarter);
+    System.out.println("This is your amount of dimes " + dime);
+    System.out.println("This is your amount of nickels " + nickel);
+    System.out.println("This is your amount of pennies " + penny);
+
+    
+    
+  }
+}
