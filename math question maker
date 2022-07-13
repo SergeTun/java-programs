@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+
+    Scanner s = new Scanner(System.in);
+
+    double x = Math.random();
+    double y = Math.random();
+
+    x = x * 99;
+    x = x + 10;
+    int a = (int)x;
+
+    y = y * 99;
+    y = y + 10;
+    int b = (int)y;
+
+    int z; 
+    
+    System.out.println("What is " + a + "-" + b + "?");
+    z = s.nextInt();
+
+    if (z == a - b)
+      System.out.println("Correct!");
+    else 
+      System.out.println("Wrong!");
+    
+   /*
+  Task:
+    Write a program that randomly generates two numbers
+    from a chosen range (e.g. 10-99). Then display a math
+    question involving those two numbers to the user
+    (e.g. "62 - 17 = ?"). Then ask the user for their response
+    and print a computer response based on if they were
+    correct or incorrect.
+
+    What is 62 - 17?
+    >> 10
+    Wrong, the correct answer was 45
+
+    What is 62 - 17?
+    >> 45
+    Correct!
+*/
+  }
+}
