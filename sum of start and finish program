@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+
+    Scanner s = new Scanner(System.in);
+
+    int start;
+    int finish;
+    int sum = 0;
+
+    System.out.print("Start: ");
+    start = s.nextInt();
+    
+    System.out.print("Finish: ");
+    finish = s.nextInt();
+
+    for (int i = start; i <= finish; i++) {
+      System.out.println(i);
+      sum = (int)sum + i;
+      
+    }
+    System.out.println(sum);
+  }
+}
+/*
+  Ask the user for two integers, a start and a finish, and print out the sum of all numbers between the two. (e.g. start=5, end=9, result would be 5 + 6 + 7 + 8 + 9 = 35)
+*/
