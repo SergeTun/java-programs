@@ -5,7 +5,7 @@ class Main {
     Scanner s = new Scanner(System.in);
 
     int guessedNumber = 0;
-    int guesses;
+    int guesses = 0;
 
     double x = Math.random();
     x = x * 99;
@@ -25,6 +25,8 @@ class Main {
     else if (guessedNumber > randomNum) {
       System.out.println("That number is too high, try again ");
     }
+      guesses++;
+      System.out.println("You have guessed " + guesses + " times");
   }
  }
 }
