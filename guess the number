@@ -1,0 +1,53 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+
+    Scanner s = new Scanner(System.in);
+
+    int guessedNumber = 0;
+    int guesses;
+
+    double x = Math.random();
+    x = x * 99;
+    x = x + 1;
+    int randomNum = (int)x;
+    
+    while (guessedNumber != randomNum) {
+    System.out.print("Guess the random number: ");
+      guessedNumber = s.nextInt();
+
+    if (guessedNumber == randomNum) {
+      System.out.println("Correct!");
+    }
+    else if (guessedNumber < randomNum) {
+      System.out.println("That number is too low, try again ");
+    }
+    else if (guessedNumber > randomNum) {
+      System.out.println("That number is too high, try again ");
+    }
+  }
+ }
+}
+/*
+  Randomly generate an integer from 1-99. Repeatedly ask the user to guess the number. If they guess correctly the game is over, if they guess incorrectly, tell them whether they were too high or too low and have them guess again. At the end, print how many tries it took them to guess the number
+  Example execution:
+    Please guess a number: 31
+    That number is too low
+    Please guess a number: 79
+    That number is too low
+    Please guess a number: 85
+    That number is too high
+    Please guess a number: 81
+    That is correct!
+
+  Steps:
+    * Randomly generate a number between 1 and 99
+    * Create a variable to count the number of guesses
+    * Create a variable for user input
+    * Loop until the guess is correct
+      * Take in the user's guess
+      * Conditional statement(s) to compare the user's guess to the number
+      * Print the "too high"/"too low" response if necessary
+      * Increment the "guesses" counter
+    * Print the number of guesses
+*/
