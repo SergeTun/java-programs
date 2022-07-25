@@ -1,0 +1,249 @@
+import java.util.Scanner;
+
+/*
+  TODO:
+    * Break up into smaller pieces (rule of thumb: no
+      method should be more than 10~15 lines)
+    * Allow repeated execution (i.e. "would you like
+      to calculate again (yes/no)?")
+    * Allow more options for input (e.g. " D" or "d" 
+      should be valid)
+      * Allow user to just type the name (e.g. "Division")
+    * Add input validation for numbers **Hard**
+      * Test for valid input
+      * Loop with "try again" if invalid
+    * Fix issue with calling nextLine after nextInt/Double
+    * Add new features:
+      * Exponent - raise one value to another
+      * Factorial
+      * Trig functions (sin/cos/tan)
+      * Unit conversions
+        * Add as sub menu
+        * fahrenheit <-> celsius
+        * feet & inches <-> meters
+      * Volumes/Areas
+        * Add as sub menu
+        * Area of a circle, rectangle, square, triangle, etc.
+        * Volume of a sphere, cube, cylinder, etc.
+      * Quadratic Equation Solver **Hard**
+    * Keep code organized
+      * Methods & variables should be named consistently
+      * User prompts should be consistent
+      * Follow indentation and spacing standards
+      * Avoid code repetition
+
+  Methods Needed:
+    * A method for each operation - DONE
+    * Get number from user (double) - DONE
+      * Display the prompt to the user, get the double from the user, and return
+      * parameter(s): String - prompt
+      * returns: double
+    * Exponent function - DONE
+      * Write an exponent method (like addition, subtraction, etc.)
+      * Add the exponent function to the menu
+    * Write a factorial function - NOT USER INPUT/OUTPUT - DONE
+      * parameter: an integer
+      * returns (as an integer) the factorial of that number
+    * Write the factorial method - WITH USER INPUT/OUTPUT
+      * similar to the addition, subtraction, etc.
+      * use the factorial method written above
+      * add it to the menu
+    * Write the circleArea method
+      * similar to the addition, subtraction, etc.
+      * prompt the user for a radius
+      * display the area
+      * add it to the menu
+
+  Task:
+    * Allow the user to input " D", "D ", "d" instead of "D" - DONE
+    * Refactor the Menu Input Validation
+      * Move it to its own method
+      * if there are any pieces that are repeated, move them to their own method
+    * Enable the user to repeat the program
+      * at the end, prompt with "Do you want to continue (yes/no)"
+      * either re-display the menu and repeat the process
+      * or quit with an exit message
+
+  Assignments:
+    Sophie - Circle Area
+    Ethan  - Factorial method
+    Serge  - Move input validation to its own method
+    Maisie - repeat the menu once finished
+*/
+
+class Main {
+  
+  static Scanner kb = new Scanner(System.in);
+  
+  public static void main(String[] args) {
+    System.out.println("╔══════════════════════════════╗");
+    System.out.println("║          CALCULATOR          ║");
+    System.out.println("╚══════════════════════════════╝");
+    
+    String cont = "yes";
+    while (cont.equals("yes")) {
+      displayMenu();
+      String userInput = inputValidation();
+      performMenuSelection(userInput);
+      System.out.println("Would you like to continue? (yes/no)");
+      cont = kb.nextLine();
+    }
+  }
+
+  public static void displayMenu() {
+    System.out.println("Please choose a calculation");
+    System.out.println("\tA) Addition");
+    System.out.println("\tB) Subtraction");
+    System.out.println("\tC) Multiplication");
+    System.out.println("\tD) Division");
+    System.out.println("\tE) Square Root");
+    System.out.println("\tF) Exponent");
+    System.out.println("\tG) circleArea");
+    System.out.println("\tH) Factorial");
+  }
+
+  public static void performMenuSelection(String userInput) {
+    if (userInput.equals("A")) {
+      addition();
+    } else if (userInput.equals("B")) {
+      subtract();
+    } else if (userInput.equals("C")) {
+      multiplication();
+    } else if (userInput.equals("D")) {
+      divide();
+    } else if (userInput.equals("E")) {
+      squareRoot();
+    } else if (userInput.equals("F")) {
+      exponent();
+    } else if (userInput.equals("G")) {
+      circleArea();
+    } else if (userInput.equals("H")) {
+      fact();
+    }
+    else {
+      System.out.println("Invalid Input");
+    }
+  }
+  
+  public static String inputValidation() {
+    boolean cont = false;
+    System.out.print(">>");
+    String userInput = kb.nextLine();
+    userInput = userInput.toUpperCase();
+    
+    while(cont == false){
+      if (userInput.contains("A")){
+        userInput = "A";
+        cont = true;
+      }
+      else if (userInput.contains("B")){
+        userInput = "B";
+        cont = true;
+      }
+      else if (userInput.contains("C")){
+        userInput = "C";
+        cont = true;
+      }
+      else if (userInput.contains("D")){
+        userInput = "D";
+        cont = true;
+      }
+      else if (userInput.contains("E")){
+        userInput = "E";
+        cont = true;
+      }
+      else if (userInput.contains("F")) {
+        userInput = "F";
+        cont = true;
+      }
+      else if (userInput.contains("G")) {
+        userInput = "G";
+        cont = true;
+      }
+      else if (userInput.contains("H")) {
+        userInput = "H";
+        cont = true;
+      }
+      else {
+        System.out.println("Invalid Input, try again");
+        System.out.print(">>");
+        userInput = kb.nextLine();
+        userInput = userInput.toUpperCase();
+      }
+    }
+    return userInput;
+  }
+  
+
+  public static void squareRoot() {
+    double a = userInput("Enter a number");
+    double result = Math.sqrt(a);
+    System.out.println("sqrt(" + a + ") = " + result);
+  }
+
+  public static void addition() {
+    double a = userInput("Enter a first number");
+    double b = userInput("Enter a second number");
+    double result = a + b;
+    System.out.println(a + " + " + b + " = " + result);
+  }
+  
+  public static void multiplication() {
+    double a = userInput("Enter a first number");
+    double b = userInput("Enter a second number");
+    double result = a * b;
+    System.out.println(a + " * " + b + " = " + result);
+  }
+
+  public static void subtract(){
+    double a = userInput("Enter a first number");
+    double b = userInput("Enter a second number");
+    double result = a - b;
+    System.out.println(a + " - " + b + " = " + result);
+  }
+
+  public static void divide() {
+    double a = userInput("Enter a first number");
+    double b = userInput("Enter a second number");
+    double result = a / b;
+    System.out.println(a + " / " + b + " = " + result);
+  }
+
+  public static void exponent() {
+    double a = userInput("Enter a first number");
+    double b = userInput("Enter a second number");
+    double result = Math.pow(a, b);
+    System.out.println(a + " ^ " + b + " = " + result);
+  }
+
+  public static void fact(){
+    System.out.println("Enter a number");
+    System.out.print(">>");
+    int input = kb.nextInt();
+    kb.nextLine();
+    System.out.println(input + "! = " + factorial(input));
+  }
+  
+  public static int factorial(int numFactorial) {
+    int result = 1;
+    int i;
+     for (i = 1; i <= numFactorial; i++) {
+      result = result * i;
+     }
+    return result;
+  }
+
+  public static void circleArea() {
+    double a = userInput("Enter a radius");
+    double result = Math.PI * Math.pow(a, 2);
+    System.out.println("The area of the circle is " + result + ".");
+  }
+  
+  public static double userInput(String n) {
+    System.out.println(n);
+    System.out.print(">>");
+    double a = kb.nextDouble();
+    kb.nextLine();
+    return a;
+  }
+}
