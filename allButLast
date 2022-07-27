@@ -1,0 +1,46 @@
+class Main {
+  public static void main(String[] args) {
+    String s = "123456789";
+    int[] digits = getDigits(s); 
+    printArray(digits);
+    int[] newDigits = allButLast(digits);
+    printArray(newDigits);
+  }
+  public static int[] getDigits(String s) {
+    int[] digits = new int[s.length()];
+    for (int i = 0; i < digits.length; i++) {
+      int digit = s.charAt(i) - '0';
+      digits[i] = digit; 
+    }
+    return digits;
+  }
+  public static int[] allButLast(int[] digits) {
+    int[] newDigits = new int[digits.length - 1];
+    for (int i = 0; i < digits.length - 1; i++) {
+      newDigits[i] = digits[i];
+    }
+    return newDigits; 
+  }
+
+  public static void printArray(int[] arr) {
+    System.out.print("[");
+    for (int i = 0; i < arr.length; i++) {
+      System.out.print(arr[i]);
+      if (i < arr.length - 1) {
+        System.out.print(", ");
+      }
+    }
+    System.out.println("]");
+  }
+}
+/*
+  Write the method allButLast which takes in an int array
+  and returns a copy of the int array, without the last
+  element
+  e.g. allButLast({1, 2, 3, 4}) -> {1, 2, 3}
+  Steps:
+    * Create an array 1 size smaller than the given array
+    * Loop through all but the last element of the array
+    * Copy each value to the new array
+    * return the new array
+  */
