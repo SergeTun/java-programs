@@ -1,0 +1,75 @@
+class Main {
+  public static void main(String[] args) {
+    /*
+     String[][] words = {{"This", "is", "a"}, 
+                        {"two", "D", "array"},
+                        {"of", "string", "variables"}};
+    int wordLength = findLongWordRow(words); 
+    System.out.println(wordLength);
+    */
+    String s = "79927398713";
+    int[] digits = getDigits(s);
+    printArray(digits); // should be [3, 5, 7, 2, 2, 8]
+    int[] payload = allButLast(digits);
+    printArray(payload); // should be [3, 5, 7, 2, 2]
+    int checkSum = digits[digits.length - 1];
+    doubleEverySecond(payload);
+    printArray(payload); // should be [6, 5, 14, 2, 4]
+  }
+
+  public static void doubleEverySecond(int[] arr) {
+    for (int i = arr.length - 1; i >= 0; i = i - 2) {
+      arr[i] = 2 * arr[i];
+    }
+  }
+
+  public static int[] allButLast(int[] arr) {
+    int[] newArray = new int[arr.length - 1];
+    for (int i = 0; i < newArray.length; i++) {
+      newArray[i] = arr[i];
+    }
+    return newArray; 
+  }
+
+  public static int[] getDigits(String s) {
+    int[] digits = new int[s.length()];
+    int digit = 0;
+    for (int i = 0; i < digits.length; i++) {
+      digit = s.charAt(i) - '0';
+      digits[i] = digit;
+    }
+    return digits;
+  }
+
+  public static void printArray(int[] arr) {
+    System.out.print("[");
+    for (int i = 0; i < arr.length; i++) {
+      System.out.print(arr[i]);
+      if (i < arr.length - 1) {
+        System.out.print(", ");
+      }
+    }
+    System.out.println("]");
+  }
+
+  public static int findLongWordRow(String[][] words) {
+    int count = 0;
+    for (int i = 0; i < words.length; i++) {
+      for (int c = 0; c < words[i].length; c++) {
+        if (words[i][c] != null) {
+          count++;
+        }
+      }
+    }
+    return count; 
+  }
+}
+/*
+  Task:
+    Write a method which takes in a 2D array of Strings
+    and returns the row which contains the longest single string.
+    String[][] words = {{"This", "is", "a"}, 
+                        {"two", "D", "array"},
+                        {"of", "string", "variables"}};
+    findLongWordRow(words) -> {"of", "string", "variables"}
+*/
