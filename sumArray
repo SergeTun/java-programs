@@ -1,0 +1,29 @@
+class Main {
+  public static void main(String[] args) {
+    int[][] table = {{1, 2, 3},
+                     {4, 5, 6},
+                     {7, 8, 9},
+                     {10, 11, 12}};
+    int sum = sumArray(table); 
+    System.out.println("sum of the table is: " + sum);
+  }
+  public static int sumArray(int[][] table) {
+    int sum = 0; 
+    for (int i = 0; i < table.length; i++) {
+      for (int c = 0; c < table[i].length; c++) {
+        sum = sum + table[i][c]; 
+      }
+    }
+    return sum; 
+  }
+}
+/*
+  Task:
+    Write a method which takes in a 2D array of integers and
+    returns the sum of all elements in the 2D array.
+    int[][] table = {{ 1,  2,  3},
+                     { 4,  5,  6},
+                     { 7,  8,  9},
+                     {10, 11, 12}};
+    sum2D(table) -> 78
+*/
