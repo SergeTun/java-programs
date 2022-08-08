@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) throws FileNotFoundException {
+
+    // Read the words from the file
+    File f = new File("/home/runner/Serge-1-on-1-8-7/test_words.txt");
+    Scanner fileScanner = new Scanner(f);
+    ArrayList<String> words = new ArrayList<String>();
+    while (fileScanner.hasNextLine()) {
+      String word = fileScanner.nextLine();
+      words.add(word);
+    }
+  
+    
+    // Count the words that start with `a`
+    int counter = 0;
+    int counter2 = 0;
+    for (String word : words) {
+      counter2++;
+      if (word.charAt(0) == 'a') {
+        counter++; 
+      }
+    }
+    float percentage = (float)counter / counter2;
+    percentage = percentage * 100;
+    System.out.println(percentage);
+  }
+}
