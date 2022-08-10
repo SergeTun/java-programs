@@ -1,1 +1,11 @@
-
+import java.io.*;
+public class Introduction {
+  public static void main(String[] args) throws IOException {
+    
+    FileOutputStream output = new FileOutputStream("output.txt");
+    String outputText = "Hey what's up guys.";
+    byte[] outputText = outputText.getBytes(); 
+    output.write(outputText); 
+    output.close();
+  }
+}
